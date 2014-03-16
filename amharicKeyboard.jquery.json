@@ -11,7 +11,7 @@
     "version": "1.0.0",
     "author": {
         "name": "Dawit Yitagesu Abebe",
-        "url": "https://github.com/jquery/jquery-color/blob/2.1.2/AUTHORS.txt"
+        "url": "https://github.com/dawityise/Amharic-Keyboard/blob/master/AUTHORS.txt"
     },
     "maintainers": [
         {
@@ -22,8 +22,8 @@
     ],
     "licenses": [
         {
-            "type": "GPLv2",
-            "url": "https://github.com/jquery/jquery-color/blob/2.1.2/MIT-LICENSE.txt"
+            "type": "MIT",
+            "url": "https://github.com/dawityise/Amharic-Keyboard/blob/master/LICENSE.txt"
         }
     ],    
     "dependencies": {
