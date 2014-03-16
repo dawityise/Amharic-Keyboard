@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Amharic Keyboard</title>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="amharicKeyboard.jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#target").amharicKeyboard();
+        });
+    </script>
+    <style type="text/css">
+       @import url(http://fonts.googleapis.com/earlyaccess/droidsansethiopic.css);
+        body {
+            font-family: 'Droid Sans Ethiopic', serif !important;
+        }
+        #target {
+                        font-family: 'Droid Sans Ethiopic', serif !important;
+        }
+    </style>
+</head>
+<body>
+  
+    <input id="store" type="hidden" />
+    <textarea id="target" rows="4" cols="60">
+
+    </textarea>
+   
+</body>
+</html>

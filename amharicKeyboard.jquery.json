@@ -1,0 +1,32 @@
+﻿{
+    "name": "Amharic Keyboard",
+    "title": "jQuery Amharic Keyboard",
+    "description": "jQuery plugin for typing amharic online support.",
+    "keywords": [
+        "amharic",
+        "keyboard",
+		"type",
+		"geez"
+    ],
+    "version": "1.0.0",
+    "author": {
+        "name": "Dawit Yitagesu Abebe",
+        "url": "https://github.com/jquery/jquery-color/blob/2.1.2/AUTHORS.txt"
+    },
+    "maintainers": [
+        {
+            "name": "Dawit Abebe",
+            "email": "dawityise@gmail.com",
+            "url": "http://melastudios.com"
+        }
+    ],
+    "licenses": [
+        {
+            "type": "GPLv2",
+            "url": "https://github.com/jquery/jquery-color/blob/2.1.2/MIT-LICENSE.txt"
+        }
+    ],    
+    "dependencies": {
+        "jquery": ">=1.3.2"
+    }
+}
