@@ -1,7 +1,7 @@
 Amharic-Keyboard
 ================
 
-jQery plugin for Amharic keyboard support online.
+jQuery plugin for Amharic keyboard support online.
 
 
 
