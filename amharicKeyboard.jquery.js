@@ -63,14 +63,14 @@
                             || thirdChar == "u" || thirdChar == "A"
                             || thirdChar == "E" || thirdChar == "I"
                             || thirdChar == "O" || thirdChar == "U") {
-                            tirgum = oneCharacter[thirdChar]; 
+                            tirgum = oneCharacter[thirdChar];
                             if (tirgum === "undefined") {
-                                tirgum = oneCharacter[firstChar]; 
+                                tirgum = oneCharacter[firstChar];
                                 if (testTirgum(tirgum)) {
                                     var hohe = getHohe(tirgum);
                                     appendWithReplace(hohe);
                                     store.value = lastTwo;
-                                    tirgum = twoCharacter[lastTwo]; 
+                                    tirgum = twoCharacter[lastTwo];
                                     var hohe = getHohe(tirgum);
                                     self.appendHohe(hohe);
                                 }
@@ -329,7 +329,7 @@
         }
         this.isLastCharSadis = function () {
             var sadis = false;
-            var text = self.val();
+            var text = getTextBeforeCursor(self[0]);
             if (text) {
                 var lastChar = text.substring(text.length - 1);
                 var code = convertCharStr2Unicode(lastChar);
@@ -343,7 +343,7 @@
         }
         this.isLastCharGeez = function () {
             var geez = false;
-            var text = self.val();
+            var text = getTextBeforeCursor(self[0]);
             if (text) {
                 var lastChar = text.substring(text.length - 1);
                 var code = convertCharStr2Unicode(lastChar);
@@ -357,7 +357,7 @@
         }
         this.isLastCharKei = function () {
             var geez = false;
-            var text = self.val();
+            var text = getTextBeforeCursor(self[0]);
             if (text) {
                 var lastChar = text.substring(text.length - 1);
                 var code = convertCharStr2Unicode(lastChar);
