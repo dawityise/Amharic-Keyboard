@@ -1,30 +1,34 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head>
     <title>Amharic Keyboard</title>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="amharicKeyboard.jquery.min.js"></script>
+    <script src="amharicKeyboard.jquery.js"></script>
     <script>
         $(document).ready(function () {
-            $("#target").amharicKeyboard();
+            //it also possible to switch from amharic to english anytime by setting the mode property to "english" or "amharic"
+            //see melastudios.com for example
+            $("#target").amharicKeyboard(); //to initialise with english: $("#target").amharicKeyboard({mode:"english"});
+            $("#target2").amharicKeyboard();
+
         });
     </script>
+    <! -- google font is the best unicode amharic font I found so far that works accross many platforms -->
     <style type="text/css">
        @import url(http://fonts.googleapis.com/earlyaccess/droidsansethiopic.css);
         body {
             font-family: 'Droid Sans Ethiopic', serif !important;
         }
-        #target {
+        #target, #target2 {
                         font-family: 'Droid Sans Ethiopic', serif !important;
         }
     </style>
 </head>
 <body>
-  
-    <input id="store" type="hidden" />
-    <textarea id="target" rows="4" cols="60">
-
-    </textarea>
+     <h1>መፃፊያ ሣጥን 1</h1>
+    <textarea id="target" rows="4" cols="60"></textarea>
+    <h1>መፃፊያ ሣጥን 2</h1>
+    <textarea id="target2" rows="4" cols="60"></textarea>
    
 </body>
 </html>

@@ -3,6 +3,7 @@
 
     $.fn.amharicKeyboard = function (options) {
         var self = this;
+        var store = "";
         //default settings
         var defaults = $.extend({
             // These are the defaults.
@@ -28,16 +29,17 @@
             if (self.options.mode === "english") return;
             objEvent ? keycode = objEvent.which : keycode = event.keyCode;
             letter = String.fromCharCode(keycode);
-            var store = $("#store");
             var word;
-            if (keycode != 32) store.val(store.val() + letter);
+            if (keycode != 32) {
+                store = store + letter;
+            }
             else
-                store.val("");
+                store = "";
 
             if (keycode == 13)
-                store.val("");
+                store ="";
 
-            word = store.val();
+            word = store;
             if (word.length > 0) {
                 var num = "";
                 var uni = "";
@@ -48,7 +50,7 @@
                         if (testTirgum(num)) {
                             var hohe = getHohe(num);
                             appendWithReplace(hohe);
-                            store.val("");
+                            store ="";
                         }
                     }
                     else {
@@ -64,12 +66,12 @@
                             || thirdChar == "E" || thirdChar == "I"
                             || thirdChar == "O" || thirdChar == "U") {
                             tirgum = oneCharacter[thirdChar];
-                            if (tirgum === "undefined") {
+                            if (lastTwo.toLowerCase() === "ae" || tirgum === "undefined") {
                                 tirgum = oneCharacter[firstChar];
                                 if (testTirgum(tirgum)) {
                                     var hohe = getHohe(tirgum);
                                     appendWithReplace(hohe);
-                                    store.value = lastTwo;
+                                    store =lastTwo;
                                     tirgum = twoCharacter[lastTwo];
                                     var hohe = getHohe(tirgum);
                                     self.appendHohe(hohe);
@@ -81,21 +83,21 @@
                                     var hohe = getHohe(tirgum);
                                     self.appendHohe(hohe);
                                 }
-                                store.val(word.charAt(2));
+                                store = word.charAt(2);
 
                             }
 
                         }
                         else {
 
-                            store.val(word.charAt(2));
+                            store = word.charAt(2);
                             tirgum = oneCharacter[word.charAt(2)]; //checkOne(word.charAt(2));
                             if (testTirgum(tirgum)) {
                                 var hohe = getHohe(tirgum);
                                 self.appendHohe(hohe);
                             }
                             else {
-                                store.val("");
+                                store ="";
                             }
 
                         }
@@ -111,18 +113,12 @@
                         tirgum = twoCharacter[word];//checkTwo(word);
                         lastChar = word.charAt(1);
                         if (testTirgum(tirgum)) {
-                            var hohe = getHohe(tirgum);
-                            if (lastChar == "a" || lastChar == "e" || lastChar == ("u") || lastChar == "A" || lastChar == "E" || lastChar == ("U")) {
-
-                            } else {
-                                store.val("");
-
-                            }
+                            var hohe = getHohe(tirgum);                            
                             appendWithSadisCheck(hohe);
                         }
                     } else {
                         var tirgum;
-                        store.val(word.charAt(1));
+                        store = word.charAt(1);
                         tirgum = oneCharacter[word.charAt(1)];//checkOne(word.charAt(1));
 
                         if (testTirgum(tirgum)) {
@@ -130,7 +126,7 @@
                             self.appendHohe(hohe);
                         }
                         else {
-                            store.val("");
+                            store = "";
                         }
 
                     }
@@ -191,7 +187,7 @@
             "Tee": "1324", "TEE": "1324", "TEe": "1324", "TeE": "1324", "cee": "127C", "cEE": "127C", "cEe": "127C", "ceE": "127C", "Cee": "132C", "CEE": "132C", "CEe": "132C", "CeE": "132C", "nee": "1294", "nEE": "1294", "nEe": "1294", "neE": "1294", "Nee": "129C", "NEE": "129C", "NEe": "129C", "NeE": "129C", "kee": "12AC", "kEE": "12AC", "kEe": "12AC", "keE": "12AC", "Kee": "12BC", "KEE": "12BC", "KEe": "12BC", "KeE": "12BC", "wee": "12CC", "wEE": "12CC", "wEe": "12CC", "weE": "12CC", "WEE": "12CC", "WEe": "12CC", "WeE": "12CC", "zee": "12DC", "zEE": "12DC", "zEe": "12DC", "zeE": "12DC",
             "Zee": "12E4", "ZEE": "12E4", "ZEe": "12E4", "ZeE": "12E4", "yee": "12EC", "yEE": "12EC", "yEe": "12EC", "yeE": "12EC", "YEE": "12EC", "YEe": "12EC", "YeE": "12EC", "dee": "12F4", "dEE": "12F4", "dEe": "12F4", "deE": "12F4", "DEE": "12F4", "DEe": "12F4", "DeE": "12F4", "jee": "1304", "jEe": "1304", "jeE": "1304", "JEE": "1304", "JEe": "1304", "JeE": "1304", "gee": "130C", "gEE": "130C", "gEe": "130C", "geE": "130C", "GEE": "130C", "GEe": "130C", "GeE": "130C", "fee": "134C", "fEE": "134C", "fEe": "134C", "feE": "134C", "FEE": "134C", "FEe": "134C", "FeE": "134C", "pee": "1354",
             "pEE": "1354", "pEe": "1354", "peE": "1354", "Pee": "1334", "PEE": "1334", "PEe": "1334", "PeE": "1334", "~ee": "1344", "~EE": "1344", "~Ee": "1344", "~eE": "1344", "#ee": "133C", "#EE": "133C", "#Ee": "133C", "#eE": "133C", "Hua": "1217", "HUa": "1217", "HUA": "1217", "lua": "120F", "lUA": "120F", "lUa": "120F", "LUA": "120F", "LUa": "120F", "LuA": "120F", "rua": "122F", "Rua": "122F", "rUa": "122F", "ruA": "122F", "RUa": "122F", "RUA": "122F", "xua": "123F", "xUa": "123F", "xUA": "123F", "XUa": "123F", "XUA": "123F", "Sua": "1227", "SUA": "1227", "SuA": "1227", "sua": "1237",
-            "sUA": "1237", "suA": "1237", "bua": "1267", "bUa": "1267", "BUA": "1267", "buA": "1267", "Bua": "1267", "vua": "126F", "VUA": "126F", "cua": "127F", "cUA": "127F", "hua": "128B", "hUA": "128B", "hue": "1283", "HUE": "128B", "nua": "1297", "nUA": "1297", "Nua": "129F", "NUA": "129F", "Zua": "12E7", "ZUA": "12E7", "zua": "12DF", "zUA": "12DF", "dua": "12F7", "dUA": "12F7", "DUA": "12F7", "jua": "1307", "jUA": "1307", "JUA": "1307", "Cua": "132F", "CUA": "132F", "fua": "134F", "FUA": "134F", "fUA": "134F", "Pua": "1337", "PUA": "1337", "pua": "1357", "pUA": "1357", "#ua": "133F",
+            "sUA": "1237", "suA": "1237", "bua": "1267", "bUa": "1267", "BUA": "1267", "buA": "1267", "Bua": "1267", "vua": "126F", "VUA": "126F", "cua": "127F", "cUA": "127F", "hua": "128B", "hUA": "128B", "hue": "1283", "HUE": "1283", "HUI": "1285", "hui": "1285", "nua": "1297", "nUA": "1297", "Nua": "129F", "NUA": "129F", "Zua": "12E7", "ZUA": "12E7", "zua": "12DF", "zUA": "12DF", "dua": "12F7", "dUA": "12F7", "DUA": "12F7", "jua": "1307", "jUA": "1307", "JUA": "1307", "Cua": "132F", "CUA": "132F", "fua": "134F", "FUA": "134F", "fUA": "134F", "Pua": "1337", "PUA": "1337", "pua": "1357", "pUA": "1357", "#ua": "133F",
             "#UA": "133F", "tua": "1277", "tUA": "1277", "kua": "12B3", "kUA": "12B3", "qua": "124B", "QUA": "124B", "gua": "130F", "gUA": "130F", "GUA": "130F", "mua": "121F", "MUA": "121F", "mUA": "121F", "Tua": "1327", "TUA": "1327"
         };
 
