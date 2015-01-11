@@ -5,12 +5,28 @@
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="amharicKeyboard.jquery.js"></script>
     <script>
+        var modeValue = "amharic";
+
         $(document).ready(function () {
             //it also possible to switch from amharic to english anytime by setting the mode property to "english" or "amharic"
             //see melastudios.com for example
-            $("#target").amharicKeyboard(); //to initialise with english: $("#target").amharicKeyboard({mode:"english"});
+          var textarea =  $("#target").amharicKeyboard(); //to initialise with english: $("#target").amharicKeyboard({mode:"english"});
             $("#target2").amharicKeyboard();
+            $(".mode").click(function () {
+                var $this = $(this);
+                //var textarea = $("#target").amharicKeyboard();
+                $(".mode").removeClass("selected");
+                $this.addClass("selected");
 
+                if ($this.val() === "እንግሊዝኛ")
+                    modeValue = "english";
+                else
+                    modeValue ="amharic";
+
+                textarea.changeMode(modeValue);
+
+
+            });
         });
     </script>
     <! -- google font is the best unicode amharic font I found so far that works accross many platforms -->
@@ -22,12 +38,19 @@
         #target, #target2 {
                         font-family: 'Droid Sans Ethiopic', serif !important;
         }
+        .selected { background-color:#4cff00;
+        }
     </style>
 </head>
 <body>
      <h1>መፃፊያ ሣጥን 1</h1>
+    <p>አማርኛና እንግሊዝኛን እያፈራረቁ ለመፃፍ የሚያስችል ሣጥን ምሣሌ</p>
+    <input type="hidden" id="mode" value="amharic" />
+    <input type="button" id="modeAmharic" class="mode selected" value="አማርኛ" />
+    <input type="button" id="modeEnglish" class="mode" value="እንግሊዝኛ" /><br />
     <textarea id="target" rows="4" cols="60"></textarea>
     <h1>መፃፊያ ሣጥን 2</h1>
+    <p>አማርኛ ብቻ ለመፃፍ የሚያስችል ሣጥን ምሣሌ</p>
     <textarea id="target2" rows="4" cols="60"></textarea>
    
 </body>
