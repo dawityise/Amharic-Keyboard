@@ -12,6 +12,7 @@
             //see melastudios.com for example
           var textarea =  $("#target").amharicKeyboard(); //to initialise with english: $("#target").amharicKeyboard({mode:"english"});
             $("#target2").amharicKeyboard();
+            $("#target3").amharicKeyboard();
             $(".mode").click(function () {
                 var $this = $(this);
                 //var textarea = $("#target").amharicKeyboard();
@@ -53,5 +54,8 @@
     <p>አማርኛ ብቻ ለመፃፍ የሚያስችል ሣጥን ምሣሌ</p>
     <textarea id="target2" rows="4" cols="60"></textarea>
    
+    <p>contenteditable div</p>
+    <div id="target3" contenteditable="true" >Change me</div>
+
 </body>
 </html>
